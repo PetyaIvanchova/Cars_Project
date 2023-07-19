@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+.nav {
+    background: black;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10%;
+}
+
+nav ul li {
+    font-size: 23px;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 2%;
+    margin-right: 5%;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    border-radius: 15px;
+    color: white;
+}
+
+.home {
+    margin-left: 2%;
+    padding-right: 43%;
+}
+
+.svg {
+    width: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.bgimg {
+    width: 100%;
+}
+
+.bgimg img {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
