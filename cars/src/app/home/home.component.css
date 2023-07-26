@@ -1,0 +1,10 @@
+
+.bgimg {
+    width: 100%;
+}
+
+.bgimg img {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}

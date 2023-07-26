@@ -1,0 +1,27 @@
+<section id="catalogPage">
+    <h1>All Albums</h1>
+    <div *ngIf="isLoading">
+        <app-loader></app-loader>
+    </div>
+    <div *ngIf="!isLoading">
+      <div *ngFor="let car of carsList">
+        <div class="card-box">
+            <img src={{car.url}}>
+            <div>
+                <div class="text-center">
+                    <p class="carModel">Car Model: {{car.carModel}}</p>
+                    <p class="year">Year: {{car.year}}</p>
+                    <p class="color">Color: {{car.color}}</p>
+                    <p class="productionDate">Producion Date: {{car.productionDate}}</p>
+                </div>
+                <div class="btn-group">
+                    <a href="#" id="details">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>  
+    </div>
+    
+
+
+</section>
