@@ -1,0 +1,23 @@
+<section id="detailsPage">
+    <div class="wrapper">
+        <div class="albumCover">
+            <img *ngIf="car != null" src="{{car.url}}">
+        </div>
+        <div class="albumInfo">
+            <div *ngIf="car != null" class="albumText">
+
+                <h1>Car Model: {{car.carModel}}</h1>
+                <h3>Year: {{car.year}}</h3>
+                <h4>Color: {{car.color}} </h4>
+                <h4>Production Date: {{car.productionDate}}</h4>
+                <p>Description: {{car.description}}</p>
+            </div>
+
+            <!-- Only for registered user and creator of the album-->
+            <div *ngIf="isCarOwner" class="actionBtn">
+                <a routerLink="edit" class="edit">Edit</a>
+                <a (click)="deleteBtn()" class="remove">Delete</a>
+            </div>
+        </div>
+    </div>
+</section>

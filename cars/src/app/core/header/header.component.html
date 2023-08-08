@@ -1,13 +1,13 @@
 <div>
     <div *ngIf="isLoggedIn" class="nav">
         <nav>
+            
+            <li class="home"><a routerLink="/home"><img class="svg" src="/assets/key-electric-car-svgrepo-com.svg"></a></li>
             <ul>
-                <li class="home"><a href="/"><img class="svg" src="/assets/key-electric-car-svgrepo-com.svg"></a></li>
-                
-                <li><a href="/create">Add a car</a></li>
-                <li><a href="/catalog">Catalog</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a routerLink="/create">Add a car</a></li>
+                <li><a routerLink="/catalog">Catalog</a></li>
+                <li><a routerLink="/profile">Profile</a></li>
+                <li class="logoutbtn" (click)="logout()"><a>Logout</a></li>
     
             </ul>
         </nav>
@@ -15,14 +15,14 @@
 
     <div *ngIf="!isLoggedIn" class="nav">
         <nav>
-            <li class="home"><a href="/"><img class="svg" src="/assets/key-electric-car-svgrepo-com.svg"></a></li>
+            <li class="home"><a routerLink="/home"><img class="svg" src="/assets/key-electric-car-svgrepo-com.svg"></a></li>
             <ul>
                 
                 
-                <li><a href="/create">Add a car</a></li>
-                <li><a href="/catalog">Catalog</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><a routerLink="/create">Add a car</a></li>
+                <li><a routerLink="/catalog">Catalog</a></li>
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
     
             </ul>
         </nav>

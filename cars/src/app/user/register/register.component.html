@@ -1,0 +1,25 @@
+<section id="registerPage">
+    <form #form="ngForm" (submit)="register()">
+        <fieldset>
+            <legend>Register</legend>
+
+            <label for="username" class="vhide">Username</label>
+            <input id="username" class="username" name="username" type="text" placeholder="Username" ngModel #username="ngModel">
+
+            <label for="email" class="vhide">Email</label>
+            <input id="email" class="email" name="email" type="text" placeholder="Email" ngModel #email="ngModel">
+
+            <label for="password" class="vhide">Password</label>
+            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel">
+
+            <label for="conf-pass" class="vhide">Confirm Password:</label>
+            <input id="conf-pass" class="conf-pass" name="repeatPassword" type="password" placeholder="Confirm Password" ngModel #confirmPassword="ngModel">
+
+            <button type="submit" class="register">Register</button>
+
+            <p class="field">
+                <span>If you already have profile click <a href="#">here</a></span>
+            </p>
+        </fieldset>
+    </form>
+</section>

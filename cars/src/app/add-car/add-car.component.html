@@ -1,0 +1,36 @@
+<section class="createPage">
+    <form #form="ngForm" (ngSubmit)="save(form)">
+        <fieldset>
+            <legend>Car</legend>
+
+            <div class="container">
+                <label for="name" class="vhide" >Car model</label>
+                <input *ngIf="!isEditMode" id="name" name="carModel" class="name" type="text" placeholder="Car Model" ngModel #carModel="ngModel" >
+                <input *ngIf="isEditMode" name="carModel" class="name" type="text" placeholder="Car Model" [(ngModel)]="car.carModel" >
+
+                <label for="imgUrl" class="vhide" >Image Url</label>
+                <input *ngIf="!isEditMode" id="imgUrl" name="url" class="imgUrl" type="text" placeholder="Image Url" ngModel #url="ngModel" >
+                <input *ngIf="isEditMode" name="url" class="imgUrl" type="text" placeholder="Image Url" [(ngModel)]="car.url" >
+
+                <label for="price" class="vhide" >Color</label>
+                <input *ngIf="!isEditMode" id="price" name="color" class="price" type="text" placeholder="Color" ngModel #color="ngModel">
+                <input *ngIf="isEditMode" name="color" class="price" type="text" placeholder="Color" [(ngModel)]="car.color">
+
+                <label for="releaseDate" class="vhide" >Year</label>
+                <input *ngIf="!isEditMode" id="releaseDate" name="year" class="releaseDate" type="text" placeholder="Year" ngModel #year="ngModel" >
+                <input *ngIf="isEditMode" name="year" class="releaseDate" type="text" placeholder="Year" [(ngModel)]="car.year" >
+
+                <label for="date" class="vhide" >Production Date</label>
+                <input *ngIf="!isEditMode" id="date" name="productionDate" class="artist" type="text" placeholder="Production Date" ngModel #productionDate="ngModel" >
+                <input *ngIf="isEditMode" name="productionDate" class="artist" type="text" placeholder="Production Date" [(ngModel)]="car.productionDate" >
+
+                <label for="artist" class="vhide" >Description</label>
+                <input *ngIf="!isEditMode" id="artist" name="description" class="artist" type="text" placeholder="Description" ngModel #description="ngModel" >
+                <input *ngIf="isEditMode" name="description" class="artist" type="text" placeholder="Description" [(ngModel)]="car.description" >
+                
+
+                <button class="add-album" type="submit" >Save</button>
+            </div>
+        </fieldset>
+    </form>
+</section>

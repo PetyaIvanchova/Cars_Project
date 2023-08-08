@@ -1,3 +1,2 @@
-export const environment = {
-    appUrl: 'http://localhost:5006'
-};
+export const appUrl = 'http://localhost:5006';
+

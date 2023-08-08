@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface Car {
     '_id': string,
     'carModel': string,
@@ -5,7 +7,8 @@ export interface Car {
     'year': string,
     'color': string,
     'productionDate': string,
-    'owner': string,
+    'owner': any,
+    'description': string,
     '__v': number,
     
 }

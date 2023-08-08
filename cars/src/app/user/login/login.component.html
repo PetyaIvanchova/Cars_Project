@@ -1,0 +1,19 @@
+<section id="loginPage">
+    <form #form="ngForm" (submit)="login(form)">
+        <fieldset>
+            <legend>Login</legend>
+
+            <label for="username" class="vhide">Username</label>
+            <input id="email" class="email" name="username" type="text" placeholder="Username" ngModel #username="ngModel">
+
+            <label for="password" class="vhide">Password</label>
+            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel">
+
+            <button type="submit" class="login">Login</button>
+
+            <p class="field">
+                <span>If you don't have profile click <a routerLink="/register">here</a></span>
+            </p>
+        </fieldset>
+    </form>
+</section>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLoggedIn: boolean = false;
+
+  constructor(private userService: UserService){}
+
+  get isLoggedIn() :boolean{
+    return this.userService.isLoggedIn;
+  }
+
+  logout(): void{
+    this.userService.logout();
+  }
 }

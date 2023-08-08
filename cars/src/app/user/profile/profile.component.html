@@ -1,0 +1,25 @@
+<div class="container">
+    <form #form="ngForm" (submit)="save(form)">
+        <div class="profile"><img src="/assets/profile.png" alt="default user">
+        <h3>User Info:</h3>
+        <div class="flex">
+            <p>Username: </p>
+            <p *ngIf="!isEditMode">{{user.username}}</p>
+            <input *ngIf="isEditMode" name="username" type="text" [(ngModel)]="user.username">
+        </div>
+        <div class="flex">
+            <p >Email: </p>
+            <p *ngIf="!isEditMode">{{user.email}}</p>
+            <input *ngIf="isEditMode" name="email" type="text" [(ngModel)]="user.email">
+        </div>
+        <div class="flex">
+            <p>Phone: </p>
+            <p *ngIf="!isEditMode">{{user.phone}}</p>
+            <input *ngIf="isEditMode" name="phone" type="text" [(ngModel)]="user.phone">
+        </div>
+        <button *ngIf="!isEditMode" (click)="openEditMode()" class="edit-button">Edit</button>
+        <button *ngIf="isEditMode" type="submit" class="edit-button">Save</button>
+    </div>
+</form>
+    
+</div>
