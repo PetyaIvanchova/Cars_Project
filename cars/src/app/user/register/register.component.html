@@ -1,24 +1,70 @@
 <section id="registerPage">
-    <form #form="ngForm" (submit)="register()">
+    <form #form="ngForm" (submit)="register()" >
         <fieldset>
             <legend>Register</legend>
 
             <label for="username" class="vhide">Username</label>
-            <input id="username" class="username" name="username" type="text" placeholder="Username" ngModel #username="ngModel">
+            <input id="username" class="username" name="username" type="text" placeholder="Username" ngModel #username="ngModel" required minlength="5">
+
+            <ng-container *ngIf="username.touched">
+                <p class="error" *ngIf="username.errors?.['required']">
+                  Username is required!
+                </p>
+                <p class="error" *ngIf="username.errors?.['minlength']">
+                  Username must be at least
+                  {{username.errors?.['minlength']['requiredLength']}} characters!
+                </p>
+            </ng-container>
 
             <label for="email" class="vhide">Email</label>
-            <input id="email" class="email" name="email" type="text" placeholder="Email" ngModel #email="ngModel">
+            <input id="email" class="email" name="email" type="text" placeholder="Email" ngModel #email="ngModel" required pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}">
 
+            <ng-container *ngIf="email.touched">
+                <p class="error" *ngIf="email.errors?.['required']">
+                  Email is required!
+                </p>
+                <p class="error" *ngIf="email.errors?.['pattern']">
+                  Email is not valid!
+                </p>
+            </ng-container>  
+            
+            
             <label for="password" class="vhide">Password</label>
-            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel">
+            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel" required minlength="5" [(ngModel)]="user.password">
+
+            <ng-container *ngIf="password.touched">
+                <p class="error" *ngIf="password.errors?.['required']">
+                  Password is required!
+                </p>
+                <p class="error" *ngIf="password.errors?.['minlength']">
+                  Password must be at least
+                  {{password.errors?.['minlength']['requiredLength']}} characters!
+                </p>
+            </ng-container>
 
             <label for="conf-pass" class="vhide">Confirm Password:</label>
-            <input id="conf-pass" class="conf-pass" name="repeatPassword" type="password" placeholder="Confirm Password" ngModel #confirmPassword="ngModel">
+            <input id="conf-pass" class="conf-pass" name="repeatPassword" type="password" placeholder="Confirm Password" ngModel #confirmPassword="ngModel" required  minlength="5" [(ngModel)]="user.confirmPassword">
+
+            <ng-container *ngIf="confirmPassword.touched">
+                <p class="error" *ngIf="confirmPassword.errors?.['required']">
+                    Password must be confirmed!
+                </p>
+                <p class="error" *ngIf="confirmPassword.errors?.['minlength']">
+                  Password must be at least
+                  {{confirmPassword.errors?.['minlength']['requiredLength']}} characters!
+                </p>
+                <p class="error" *ngIf="passwordMismatch()">
+                    Your password and confirmation password do not match.
+                  </p>
+            </ng-container>
+
+            
+
 
             <button type="submit" class="register">Register</button>
 
             <p class="field">
-                <span>If you already have profile click <a href="#">here</a></span>
+                <span>If you already have profile click <a href="/login">here</a></span>
             </p>
         </fieldset>
     </form>

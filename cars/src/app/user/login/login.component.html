@@ -4,10 +4,31 @@
             <legend>Login</legend>
 
             <label for="username" class="vhide">Username</label>
-            <input id="email" class="email" name="username" type="text" placeholder="Username" ngModel #username="ngModel">
+            <input id="email" class="email" name="username" type="text" placeholder="Username" ngModel #username="ngModel" required minlength="5">
+
+            <ng-container *ngIf="username.touched">
+                <p class="error" *ngIf="username.errors?.['required']">
+                  Username is required!
+                </p>
+                <p class="error" *ngIf="username.errors?.['minlength']">
+                  Username must be at least
+                  {{username.errors?.['minlength']['requiredLength']}} characters!
+                </p>
+            </ng-container>
+        
 
             <label for="password" class="vhide">Password</label>
-            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel">
+            <input id="password" class="password" name="password" type="password" placeholder="Password" ngModel #password="ngModel" required minlength="5">
+
+            <ng-container *ngIf="password.touched">
+                <p class="error" *ngIf="password.errors?.['required']">
+                  Password is required!
+                </p>
+                <p class="error" *ngIf="password.errors?.['minlength']">
+                  Password must be at least
+                  {{password.errors?.['minlength']['requiredLength']}} characters!
+                </p>
+            </ng-container>
 
             <button type="submit" class="login">Login</button>
 
