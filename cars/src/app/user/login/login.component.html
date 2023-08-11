@@ -3,6 +3,10 @@
         <fieldset>
             <legend>Login</legend>
 
+            <p class="error" *ngIf="errorMessage">
+                {{errorMessage}}
+            </p>
+
             <label for="username" class="vhide">Username</label>
             <input id="email" class="email" name="username" type="text" placeholder="Username" ngModel #username="ngModel" required minlength="5">
 

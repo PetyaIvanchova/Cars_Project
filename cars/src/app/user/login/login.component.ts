@@ -10,15 +10,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   @ViewChild ('form') form !: NgForm;
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private router: Router){}
 
-  login(form: NgForm) :void{
+  login(form: NgForm) : void{
     if(form.invalid){
       return;
     }
 
-    this.userService.login(this.form.value);
-    this.router.navigate(["/home"]);
+    this.userService.login(this.form.value).subscribe((res: any)=>{
+
+      if(res.data.success){
+        this.router.navigate(["/home"]);
+        localStorage.setItem("[user]", JSON.stringify(res));
+      } else {
+        this.errorMessage = res.data.message;
+      }
+      return res;
+    });
   }
 }

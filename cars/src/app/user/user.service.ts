@@ -27,12 +27,8 @@ export class UserService {
     }
   }
 
-  login(data: User) :void{
-    this.http.post<Token>(`${appUrl}/auth/login`, data).subscribe((res)=>{
-      console.log(res);
-      localStorage.setItem(this.USER_KEY, JSON.stringify(res));
-    })
-   
+  login(data: User){
+   return this.http.post<Token>(`${appUrl}/auth/login`, data);
   }
 
   logout() :void{
@@ -42,9 +38,6 @@ export class UserService {
   }
 
   register(data: User){
-    this.http.post<Token>(`${appUrl}/auth/register`, data).subscribe((res)=>{
-      console.log(res);
-      localStorage.setItem(this.USER_KEY, JSON.stringify(res.token));
-    })
+    return this.http.post<Token>(`${appUrl}/auth/register`, data);
   }
 }

@@ -30,7 +30,6 @@ export class AddCarComponent implements OnInit {
 
     if (this.id) {
       this.apiSrvice.getCarDetails(this.id).subscribe((data: any) => {
-        console.log(data.data.car);
         this.car = data.data.car;
         this.isEditMode = true;
       })
@@ -44,7 +43,6 @@ export class AddCarComponent implements OnInit {
 
     if (this.id) {
       this.apiSrvice.editCar(this.id, this.form.value).subscribe((data) => {
-        console.log(data);
         
       });
     }
@@ -63,13 +61,12 @@ export class AddCarComponent implements OnInit {
   }
 
   addCar(form: NgForm): void {
-    console.log(this.form.value)
     if (form.invalid) {
       return;
     }
 
     this.apiSrvice.addCar(this.form.value).subscribe((data) => {
-      console.log(data);
+     
       this.form.reset();
     });
   }

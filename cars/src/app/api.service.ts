@@ -18,18 +18,14 @@ export class ApiService {
 
   async postUser(data: User){
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(this.decodeToken(user.data.token));
     const decodedToken = this.decodeToken(user.data.token);
     data._id = decodedToken._id;
-    console.log(data);
     return this.http.post<User>(`${appUrl}/auth/users/edit`, data).subscribe((res)=>{
-      console.log(res);
     })
   }
 
   editCar(id: string, data: string){
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(this.decodeToken(user.data.token));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -42,7 +38,6 @@ export class ApiService {
 
   getUser(){
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(`getUser`+this.decodeToken(user.data.token));
     const decodedToken = this.decodeToken(user.data.token);
 
     return this.http.get<User>(`${appUrl}/auth/users/${decodedToken._id}`)
@@ -50,7 +45,6 @@ export class ApiService {
 
   deleteCar(id: string) {
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(this.decodeToken(user.data.token));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -62,7 +56,6 @@ export class ApiService {
 
   getCarDetails(id: string) {
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(this.decodeToken(user.data.token));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -74,7 +67,6 @@ export class ApiService {
 
   addCar(data: Car) {
     const user: any = JSON.parse(localStorage.getItem('[user]') || '');
-    console.log(this.decodeToken(user.data.token));
     const decodedToken = this.decodeToken(user.data.token);
     data.owner = decodedToken._id;
     const httpOptions = {

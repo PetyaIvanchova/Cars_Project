@@ -2,6 +2,10 @@
     <form #form="ngForm" (submit)="register()" >
         <fieldset>
             <legend>Register</legend>
+            
+            <p class="error" *ngIf="errorMessage">
+                {{errorMessage}}
+            </p>
 
             <label for="username" class="vhide">Username</label>
             <input id="username" class="username" name="username" type="text" placeholder="Username" ngModel #username="ngModel" required minlength="5">
@@ -17,7 +21,7 @@
             </ng-container>
 
             <label for="email" class="vhide">Email</label>
-            <input id="email" class="email" name="email" type="text" placeholder="Email" ngModel #email="ngModel" required pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}">
+            <input id="email" class="email" name="email" type="text" placeholder="Email" ngModel #email="ngModel" required pattern="^[\w\.]+@([\w-]+\.)+[\w-]{2,4}">
 
             <ng-container *ngIf="email.touched">
                 <p class="error" *ngIf="email.errors?.['required']">

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   @ViewChild ('form') form!: NgForm;
-
+  errorMessage: string = '';
   user = {
     password: '',
     confirmPassword: ''
@@ -19,13 +19,23 @@ export class RegisterComponent {
   constructor(private userService: UserService,
      private router: Router){}
 
-  register(): void{
+  async register(): Promise<void>{
     if(this.form.invalid){
       return;
     }
     
-    this.userService.register(this.form.value);
-    this.router.navigate(["/home"]);
+    this.userService.register(this.form.value).subscribe((res: any)=>{
+    
+      if (res.data.success) {
+        this.router.navigate(["/home"]);
+        localStorage.setItem('[user]', JSON.stringify(res));
+      }
+      else {
+        this.errorMessage = res.data.message;
+      }
+      return res;
+    });
+    
   }
 
   passwordMismatch(){

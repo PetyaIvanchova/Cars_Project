@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
       this.apiService.getUser().subscribe((data: any)=>{
-        console.log(data.data);
+     
         this.user = data.data;
        
       })
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit{
     }
 
     this.apiService.postUser(this.form.value)
-    console.log(this.form.value);
+    
     this.isEditMode = false;
   }
 }
